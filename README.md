@@ -6,6 +6,10 @@ Outil d'extraction de mots clés dans des diaporamas et des transcriptions de la
 
 Ces instructions vont vous permettre d'obtenir une copie du projet et de le lancer sur votre machine locale.
 
+### Installation
+
+Vous pouvez télécharger les sources du projet via GitHub et l'installer ou bon vous semble sur votre machine.
+
 ### Dependances
 
 Ce projet requiert les dépendances suivantes :
