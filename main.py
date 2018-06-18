@@ -5,8 +5,43 @@ import os
 import sys
 import os.path
 import argparse
+import re
+import nltk
+from openpyxl import Workbook
+from openpyxl import load_workbook
 
 # Fonctions
+def CountWords(file):
+    fichier = file
+    base = os.path.basename(fichier)
+    extension = os.path.splitext(base)[1]
+    if os.path.isfile(fichier):
+        file = open(fichier,"r", encoding = "ISO-8859-1")
+        data = list(file)
+        nb_words = 0
+        for elt in data:
+            elt = elt.rstrip()
+            elt = re.sub(r'.*> ', '', elt)
+            sentence = elt.split()
+            nb_words = nb_words + len(sentence)
+        print("Il y a dans ce document " + str(nb_words) + " mots.")
+        file.close()
+    return nb_words
+
+def CountWordsInExcel(file):
+    wb = load_workbook(filename=file, read_only=True)
+    ws = wb.active
+    nb_words = 0
+    i=0
+    rows = list(ws.rows)
+    while (i < ws.max_row) and (rows[i][0].value != None):
+        elt = rows[i][1].value.rstrip().lower()
+        sentence = elt.split()
+        nb_words = nb_words + len(sentence)
+        i = i + 1
+    print("Vous avez annoté manuellement " + str(nb_words) + " mots.")
+    return nb_words
+
 def str2bool(v):
     if v.lower() in ('yes', 'true', 't', 'y', '1'):
         return True
@@ -66,10 +101,10 @@ def Comparaison_unique(file_ref, file_comp):
 
 # Analyse des arguments de lancement
 parser = argparse.ArgumentParser(description='Extracteur automatique de mots clés')
-parser.add_argument('-d', '--doc',  help='Extraire les mots clés de ce document')
+parser.add_argument('-d', '--doc',  help='Chemin vers le document à annoter automatiquement')
 parser.add_argument('-t', '--tool', nargs='?', default='pyrata', help='Outil à utiliser pour extraire les mots clés: pke, pyrata, mixt, wikifier (default pyrata)')
-parser.add_argument('-r', '--ref', nargs='?', help='Document annotation manuelle à comparer avec extraction automatique')
-parser.add_argument("--unique", type=str2bool, nargs='?', const=True, default=False, help="Compare par mots clés uniques dans le document. (Par diapositive par default)")
+parser.add_argument('-r', '--ref', nargs='?', help='Chemin vers le document d\'annotation manuelle à comparer avec l\'extraction automatique')
+parser.add_argument("--unique", type=str2bool, nargs='?', const=True, default=False, help="Comparaison par mots clés uniques dans le document. (Defaut : Par diapositive)")
 parser.add_argument("--count", type=str2bool, nargs='?', const=True, default=False, help="Ajoute des détails sur les expressions annotées manuellement")
 
 args = parser.parse_args()
@@ -111,8 +146,6 @@ if dir != None:
             Extraction_keywords(tool, work_dir, filename)
             # Step 3 : Alignement des mots clés
             os.system('python3 transcription_kw_export_excel.py ' + work_dir + filename + "_kw.txt " + dir)
-            #os.system('python3 transcription_kw_export_excel.py ' + work_dir + filename + "_kw.txt " + dir)
-            #os.system('python3 transcription_kw_export_excel.py ' + work_dir + filename + "_kw.txt " + dir)
         else:
             sys.exit("L'extension du fichier " + dir + " n'est pas conforme.")
     else:
@@ -125,7 +158,12 @@ if dir != None:
             Comparaison_diapositive(file_ref, work_dir + filename + '.xlsx')
     # Step 5 : Résultats complémentaires annotation manuelle
     if count == True:
-
+        file = work_dir + filename + ".txt"
+        words_count = CountWords(file)
+        if file_ref != None:
+            words_annotate = CountWordsInExcel(file_ref)
+            result = (words_annotate * 100)/words_count
+            print("Cela représente " + str(result) + "%% de mots annotés.")
 else:
     print("Vous n'avez pas spécifier de fichier à analyser.")
 
@@ -134,3 +172,5 @@ else:
 # python3 main.py -d /home/matthias/PASTEL/diapo_pastel/info.pdf -r /home/matthias/PASTEL/annot_diapo/info.xlsx -t pke
 # python3 main.py -d /home/matthias/PASTEL/diaporama/reseaux2012.pptx -r /home/matthias/PASTEL/annotation_manuelle_diaporama/reseaux2012.xlsx -t pke
 # python3 main.py -d /home/matthias/PASTEL/transcription/20140911.stm -r /home/matthias/PASTEL/annotation_manuelle_transcription/info.xlsx -t pke
+# python3 main.py -d /home/matthias/PySTKE/PASTEL/diaporama/info.pdf -r /home/matthias/PySTKE/PASTEL/annotation_manuelle_diaporama/info.xlsx -t pke
+# python3 main.py -d /home/matthias/PySTKE/PASTEL/diaporama/reseaux2012.pptx -r /home/matthias/PySTKE/PASTEL/annotation_manuelle_diaporama/reseaux2012.xlsx -t pke

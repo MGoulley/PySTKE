@@ -172,8 +172,13 @@ print("Nombre d'éléments annotés manuellement : " + str(size_ref))
 precision = (match+approx)/float(size_comp)
 rappel = (match+approx)/float(size_ref)
 fscore = 2*(precision*rappel)/(precision+rappel)
+print("Avec Approximation :")
 print("Precision: " + str(precision) + " Rappel: " + str(rappel) + " F-Score: " + str(fscore))
-
+print("Sans Approximation :")
+precision = (match)/float(size_comp)
+rappel = (match)/float(size_ref)
+fscore = 2*(precision*rappel)/(precision+rappel)
+print("Precision: " + str(precision) + " Rappel: " + str(rappel) + " F-Score: " + str(fscore))
 
 # UTILISATION
 # python3 exel_comp.py /home/matthias/rapportstage/annotations/annotations_cours_fabrice_matthias.xlsx /home/matthias/pyKE/corpus/TICA.xlsx

@@ -9,6 +9,11 @@ entite_nommee = ""
 emphasized = ""
 while exide_presentation.get_slide_by_id(i) != None:
     data = data + exide_presentation.get_slide_by_id(i).text
+    # Exploitable
+    #print(exide_presentation.get_slide_by_id(i).title)
+    # Pas terrible
+    #print(exide_presentation.get_slide_by_id(i).urls)
+    #print(exide_presentation.get_slide_by_id(i).named_entities)
     """
     Possibilite de poursuite :
     data = data + exide_presentation.get_slide_by_id(i).title

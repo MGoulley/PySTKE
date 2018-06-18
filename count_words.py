@@ -4,6 +4,8 @@ import nltk
 import sys
 
 fichier = sys.argv[1]
+base = os.path.basename(fichier)
+extension = os.path.splitext(base)[1]
 if os.path.isfile(fichier):
     file = open(fichier,"r", encoding = "ISO-8859-1")
     data = list(file)
@@ -13,7 +15,7 @@ if os.path.isfile(fichier):
         elt = re.sub(r'.*> ', '', elt)
         sentence = elt.split()
         nb_words = nb_words + len(sentence)
-    print(nb_words)
+    print("Il y a dans ce document " + str(nb_words) + " mots.")
     file.close()
 
 
