@@ -1,14 +1,23 @@
 # PySTKE
-
+Python Slides and Transcriptions Keywords Extractor.
 Outil d'extraction de mots clés dans des diaporamas et des transcriptions de la parole.
+
+## Contenu du projet
+
+- Le répertoire 'corpus' contient tous les fichiers que PySTKE produit lors de son exécution.
+C'est dans ce répertoire que vous retrouverez le détail des mots clés annotés automatiquement.
+- Le répertoire 'PASTEL' contient tous les fichiers d'exemple. (Supports de cours et transcriptions de la parole)
+C'est aussi dans ce répertoire que vous trouverez mes annotations manuelles de ces supports de cours et transcriptions de la parole.
+- Le répertoire 'Doc' contient mon rapport de stage et mon support de présentation qui vous apporteront des informations complémentaires.
 
 ## Pour commencer
 
 Ces instructions vont vous permettre d'obtenir une copie du projet et de le lancer sur votre machine locale.
+PySTKE nécessite Python2.7 ET Python3 d'installé sur votre machine pour fonctionner.
 
 ### Installation
 
-Vous pouvez télécharger les sources du projet via GitHub et l'installer ou bon vous semble sur votre machine.
+Vous pouvez télécharger les sources du projet via GitHub (https://github.com/MGoulley/PySTKE) et l'installer ou bon vous semble sur votre machine.
 
 ### Dependances
 
@@ -29,6 +38,22 @@ unidecode https://pypi.org/project/Unidecode/
 future http://python-future.org/quickstart.html
 ```
 
+Que vous pouvez installer avec :
+
+```
+sudo pip install openpyxl PyPDF2 numpy
+sudo pip install git+https://github.com/boudinfl/pke.git
+```
+
+Si vous avez un soucis d'installation avec pip, vous pouvez installer  les dépendances avec :
+
+```
+sudo apt-get install python-openpyxl
+sudo apt-get install python3-openpyxl
+sudo apt-get install python-numpy
+sudo apt-get install python-pypdf2
+```
+
 ### Les options de lancement
 
 ```
@@ -45,24 +70,67 @@ optional arguments:
   --count [COUNT]       Ajoute des détails sur les expressions annotées manuellement
 ```
 
+### Les méthodes d'extractions
+- PKE : Fonctionne avec la fréquence des mots dans le texte.
+- PyRATA : Utilise des patrons syntaxique pour extraire des mots clés.
+- Mixt : Combine PKE et PyRATA.
+- Wikifier : Utilise l'outil Wikifier (http://wikifier.org/) pour extraire des mots clés.
+
 ### Effectuer les tests
 
-Vous pouvez exécuter les commandes suivantes pour tester le programme :
+La commande suivante permet d'extraire les mots clés contenus dans le diaporama '2014_Bourdon_Introduction_informatique.pdf' :
+```
+~/PySTKE$ python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf
+```
+Par defaut, PySTKE utilise PyRATA pour extraire des mots clés.
+Si vous souhaitez utiliser un autre outil, il faut utiliser l'option '-t' ou '--tool' :
+```
+~/PySTKE$ python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -t wikifier
+```
+A l'aide de cette commande, on extrait des mots clés avec Wikifier.
+Si l'on souhaite comparer une annotation automatique avec une annotation manuelle, il faut ajouter l'option '-r' ou '--ref' suivi du chemin vers le document contenant les mots clés relevés automatiquement. Cela nous produit alors un affichage de ce type :
+```
+~/PySTKE$ python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx
+Il y a 23 matchs, 280 erreurs, 23 approximations.
+Nombre d'éléments annotés automatiquement : 287
+Nombre d'éléments annotés manuellement : 83
+Avec Approximation :
+Precision: 0.160278745645 Rappel: 0.55421686747 F-Score: 0.248648648649
+Sans Approximation :
+Precision: 0.0801393728223 Rappel: 0.277108433735 F-Score: 0.124324324324
+```
+Vous pouvez remarquer que, ici, nous n'avons pas spécifier l'option '-t', nous avons donc extrait des mots clés avec l'outil PyRATA.
 
 ```
-*** Introduction à l'informatique ***
-python3 main.py -d ~/PySTKE/PASTEL/diaporama/info.pdf -r ~/PySTKE/PASTEL/annotation_manuelle_diaporama/info.xlsx -t pke --count
-python3 main.py -d ~/PySTKE/PASTEL/diaporama/info.pdf -r ~/PySTKE/PASTEL/annotation_manuelle_diaporama/info.xlsx -t pke --unique
-python3 main.py -d ~/PySTKE/PASTEL/transcription/20140911.stm -r ~/PySTKE/PASTEL/annotation_manuelle_transcription/info.xlsx -t pke --count --unique
+~/PySTKE$ python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx -t pke --count
+Il y a 13 matchs, 182 erreurs, 7 approximations.
+Nombre d'éléments annotés automatiquement : 138
+Nombre d'éléments annotés manuellement : 83
+Avec Approximation :
+Precision: 0.144927536232 Rappel: 0.240963855422 F-Score: 0.180995475113
+Sans Approximation :
+Precision: 0.0942028985507 Rappel: 0.156626506024 F-Score: 0.117647058824
+Il y a dans ce document 3201 mots.
+Vous avez annoté manuellement 164 mots.
+Cela représente 5.123398937831928%% de mots annotés.
+```
 
-*** Introduction à l'algorithmique ***
-python3 main.py -d ~/PySTKE/PASTEL/diaporama/algo.pdf -r ~/PySTKE/PASTEL/annotation_manuelle_diaporama/algo.xlsx -t pke --count
-python3 main.py -d ~/PySTKE/PASTEL/diaporama/algo.pdf -r ~/PySTKE/PASTEL/annotation_manuelle_diaporama/algo.xlsx -t pke --unique
-python3 main.py -d ~/PySTKE/PASTEL/transcription/20140912.stm -r ~/PySTKE/PASTEL/annotation_manuelle_transcription/algo.xlsx -t pke --count --unique
+### Exemple de Résultat
 
-*** Les Fonctions dans l'algorithmique ***
+Voici un résultat possible d'exécution de notre programme :
+
+```
 python3 main.py -d ~/PySTKE/PASTEL/diaporama/fonct.pdf -r ~/PySTKE/PASTEL/annotation_manuelle_diaporama/fonct.xlsx -t pke --count
-python3 main.py -d ~/PySTKE/PASTEL/diaporama/fonct.pdf -r ~/PySTKE/PASTEL/annotation_manuelle_diaporama/fonct.xlsx -t pke --unique
+Il y a 29 matchs, 368 erreurs, 40 approximations.
+Nombre d'éléments annotés automatiquement : 270
+Nombre d'éléments annotés manuellement : 227
+Avec Approximation :
+Precision: 0.255555555556 Rappel: 0.303964757709 F-Score: 0.277665995976
+Sans Approximation :
+Precision: 0.107407407407 Rappel: 0.127753303965 F-Score: 0.116700201207
+Il y a dans ce document 5177 mots.
+Vous avez annoté manuellement 303 mots.
+Cela représente 5.852810508016225%% de mots annotés.
 ```
 
 ## Créer son extracteur de mots clés
@@ -78,6 +146,7 @@ python3 main.py -d directory/file.pdf -t XXX
 ## Author
 
 * **Matthias Goulley** - Contact : mattgoulley@gmail.com
+Pour obtenir des informations complémentaires, vous pouvez consulter mon rapport de stage et mon support de présentation situés dans le répertoire '/doc'.
 
 ## References
 
