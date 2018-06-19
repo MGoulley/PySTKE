@@ -5,6 +5,16 @@ Outil d'extraction de mots clés dans des diaporamas et des transcriptions de la
 ## Table des matières
 * [Contenu du projet](#contenu-du-projet)
 * [Pour commencer](#pour-commencer)
+  - [Installation](#installation)
+  - [Dependances](#dependances)
+  - [Installer PKE](#installer-pke)
+  - [Installer Exide](#installer-exide)
+* [Les options de lancement](#les-options-de-lancement)
+* [Les méthodes d'extractions](#les-methodes-d'extractions)
+* [Effectuer les tests](#effectuer-les-tests)
+* [Créer son extracteur de mots clés](#creer-son-extracteur-de-mots-cles)
+* [Auteur](#auteur)
+* [References](#references)
 
 ## Contenu du projet
 
@@ -143,7 +153,7 @@ Ou XXX est le nom de votre outil d'extraction de mots clés. Vous pouvez ensuite
 python3 main.py -d directory/file.pdf -t XXX
 ```
 
-## Author
+## Auteur
 
 * **Matthias Goulley** - Contact : mattgoulley@gmail.com
 Pour obtenir des informations complémentaires, vous pouvez consulter mon rapport de stage et mon support de présentation situés dans le répertoire '/doc'.
