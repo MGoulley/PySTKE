@@ -1,6 +1,12 @@
 # PySTKE
 Python Slides and Transcriptions Keywords Extractor.
 Outil d'extraction de mots clés dans des diaporamas et des transcriptions de la parole.
+Formats supportés pour les diaporamas et transcriptions :
+- .pptx
+- .tex
+- .odp
+- .stm
+- .txt
 
 ## Table des matières
 * [Contenu du projet](#contenu-du-projet)
@@ -10,9 +16,9 @@ Outil d'extraction de mots clés dans des diaporamas et des transcriptions de la
   - [Installer PKE](#installer-pke)
   - [Installer Exide](#installer-exide)
 * [Les options de lancement](#les-options-de-lancement)
-* [Les méthodes d'extractions](#les-methodes-d'extractions)
+* [Les méthodes d'extractions](#les-méthodes-d'extractions)
 * [Effectuer les tests](#effectuer-les-tests)
-* [Créer son extracteur de mots clés](#creer-son-extracteur-de-mots-cles)
+* [Créer son extracteur de mots clés](#créer-son-extracteur-de-mots-clés)
 * [Auteur](#auteur)
 * [References](#references)
 
@@ -76,7 +82,7 @@ sudo pip install git+https://github.com/boudinfl/pke.git
 ```
 
 ### Installer Exide
-Finalement, il faudra installer Exide :
+Il faudra aussi installer Exide :
 ```
 sudo pip install git+https://github.com/Codophile1/exide
 ```
@@ -97,6 +103,10 @@ optional arguments:
   --unique [UNIQUE]     Compare par mots clés uniques dans le document. (Par diapositive par default)
   --count [COUNT]       Ajoute des détails sur les expressions annotées manuellement
 ```
+Le document '-d' doit être au format:
+- .pptx, .tex ou .odp pour un diaporama
+- .txt ou .stm pour une transcription de la parole
+Le document '-r' doit être au format .xlsx.
 
 ## Les méthodes d'extractions
 - PKE[pke] : Fonctionne avec la fréquence des mots dans le texte.
@@ -113,34 +123,64 @@ La commande suivante permet d'extraire les mots clés contenus dans un diaporama
 Par defaut, PySTKE utilise PyRATA pour extraire des mots clés.
 Si vous souhaitez utiliser un autre outil, il faut utiliser l'option '-t' ou '--tool' :
 ```
+#Extraction à l'aide de PKE :
+~/PySTKE$ python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -t pke
+#Extraction à l'aide de PyRATA :
+~/PySTKE$ python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -t pyrata
+#Extraction à l'aide de Mixt :
+~/PySTKE$ python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -t mixt
+#Extraction à l'aide de Wikifier :
 ~/PySTKE$ python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -t wikifier
 ```
-A l'aide de cette commande, on extrait des mots clés avec Wikifier.
-Si l'on souhaite comparer une annotation automatique avec une annotation manuelle, il faut ajouter l'option '-r' ou '--ref' suivi du chemin vers le document contenant les mots clés relevés automatiquement. Cela nous produit alors un affichage de ce type :
+Si l'on souhaite comparer une annotation automatique avec une annotation manuelle, il faut ajouter l'option '-r' ou '--ref' suivi du chemin vers le document contenant les mots clés relevés automatiquement (format .xlsx). Cela nous produit alors un affichage de ce type :
 ```
 ~/PySTKE$ python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx
-Il y a 23 matchs, 280 erreurs, 23 approximations.
-Nombre d'éléments annotés automatiquement : 287
 Nombre d'éléments annotés manuellement : 83
-Avec Approximation :
-Precision: 0.160278745645 Rappel: 0.55421686747 F-Score: 0.248648648649
-Sans Approximation :
-Precision: 0.0801393728223 Rappel: 0.277108433735 F-Score: 0.124324324324
+Nombre d'éléments annotés automatiquement : 287
+Il y a 23 matchs, 280 erreurs, 23 approximations.
+Méthode de résolution & Précision & Rappel & F-Score //
+Avec Approximation & 0.160 & 0.554 & 0.249 //
+Sans Approximation & 0.080 & 0.277 & 0.124 //
 ```
 Vous pouvez remarquer que, ici, nous n'avons pas spécifier l'option '-t', nous avons donc extrait des mots clés avec l'outil PyRATA.
-
+Si je souhaite avoir plus de détail sur mon annotation manuelle, je peux utiliser '--count'
 ```
-~/PySTKE$ python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx -t pke --count
-Il y a 13 matchs, 182 erreurs, 7 approximations.
-Nombre d'éléments annotés automatiquement : 138
+~/PySTKE$ python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx --count
 Nombre d'éléments annotés manuellement : 83
-Avec Approximation :
-Precision: 0.144927536232 Rappel: 0.240963855422 F-Score: 0.180995475113
-Sans Approximation :
-Precision: 0.0942028985507 Rappel: 0.156626506024 F-Score: 0.117647058824
+Nombre d'éléments annotés automatiquement : 287
+Il y a 23 matchs, 280 erreurs, 23 approximations.
+Méthode de résolution & Précision & Rappel & F-Score //
+Avec Approximation & 0.160 & 0.554 & 0.249 //
+Sans Approximation & 0.080 & 0.277 & 0.124 //
 Il y a dans ce document 3201 mots.
 Vous avez annoté manuellement 164 mots.
-Cela représente 5.123398937831928%% de mots annotés.
+Cela représente 5.123%% de mots annotés.
+```
+Par defaut, PySTKE compare le fichier d'annotation automatique et le fichier d'annotation manuelle par mots clés par diapositive.
+Si on veut les comparer par l'ensemble des mots clés unique dans les deux fichiers, il faut utiliser l'option '--unique'.
+```
+~/PySTKE$ python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx --unique
+Nombre d'éléments annotés manuellement : 57
+Nombre d'éléments annotés automatiquement : 81
+Il y a 13 matchs, 82 erreurs, 20 approximations.
+Méthode de résolution & Précision & Rappel & F-Score //
+Avec Approximation & 0.407 & 0.579 & 0.478 //
+Sans Approximation & 0.160 & 0.228 & 0.188 //
+```
+
+Pour les transcriptions, on peut utiliser les mêmes options que précédemment. Par exemple, pour extraire les mots clés d'une transcription avec l'outil 'mixt', on utilise la commande :
+```
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.stm -t mixt
+```
+Pour les transcriptions, il n'est pour l'instant pas possible de les comparer par diapositive, on est alors obligé d'utiliser le mot clé '--unique' pour comparer une annotation automatique d'une transcription avec l'annotation manuelle.
+```
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.stm -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_algorithmique_transcription.xlsx -t pke --unique
+Nombre d'éléments annotés manuellement : 26
+Nombre d'éléments annotés automatiquement : 70
+Il y a 2 matchs, 80 erreurs, 7 approximations.
+Méthode de résolution & Précision & Rappel & F-Score //
+Avec Approximation & 0.129 & 0.346 & 0.187 //
+Sans Approximation & 0.029 & 0.077 & 0.042 //
 ```
 
 ## Créer son extracteur de mots clés
@@ -152,6 +192,54 @@ Ou XXX est le nom de votre outil d'extraction de mots clés. Vous pouvez ensuite
 ```
 python3 main.py -d directory/file.pdf -t XXX
 ```
+
+Voici un template de ce fichier :
+```
+import os
+import sys
+
+def save_keywords_to_file(keywords_table):
+    # Write keywords line by line in txt file
+    base = os.path.basename(path_to_raw_text_file)
+    filename = os.path.splitext(base)[0]
+    work_dir = os.getcwd() + "/corpus/"
+    keywords_file_path = work_dir + filename + "_kw.txt"
+
+    file = open(keywords_file_path,"wb")
+    try:
+        for keyword in keywords_table:
+            file.write(keyword.encode('utf-8') + b"\n")
+    except NameError:
+        pass
+    file.close()
+
+# The first arg is a path to the extracted raw text file from the source or the PDF
+path_to_raw_text_file = sys.argv[1]
+
+# some stuff
+# which extract
+# keywords ...
+
+# store all the extacted keywords by passing a table wich contain all extracted keywords
+save_keywords_to_file(keywords_table)
+```
+Vous récupérez en premier argument (sys.argv[1]) le chemin vers le fichier texte à étudier pour extraire les mots clés.
+Vous pouvez ensuite appliquer nimporte quelle méthode pour extraire les mots clés.
+Pour finir, la fonction 'save_keywords_to_file()' permet d'enregistrer un fichier résultat contenant vos mots clés extraits avec par votre méthode à partir d'un tableau de mots clés donné en paramètre.
+
+## Annotation manuelle
+
+Un fichier d'annotation manuelle se présente toujours sous la forme d'un tableur composé de deux colonnes.
+La première contient le numéro de la diapositive et la seconde contient le mot clé relevé par l'annotateur sur la diapositive.
+
+| Numéro Diapositive    | Mot clé |
+| ---                   | ---       |
+| 1                     | Informatique |
+| 1                     | Algorithme        |
+| 2                     | Variable       |
+| 3                     | Algorithme       |
+
+Vous pouvez trouver des exemples de ces fichiers dans le répertoire '~/PySTKE/PASTEL/annotation_manuelle/'.
 
 ## Auteur
 
