@@ -190,6 +190,6 @@ if DIR != None:
         if FILE_REF != None:
             WORDS_ANNOTATE = count_words_in_table_file(FILE_REF)
             RESULT = (WORDS_ANNOTATE * 100)/WORDS_COUNT
-            print("Cela représente " + str(RESULT) + "%% de mots annotés.")
+            print("Cela représente " + "{0:.3f}".format(RESULT) + "%% de mots annotés.")
 else:
     print("Vous n'avez pas spécifier de fichier à analyser.")

@@ -166,20 +166,24 @@ base = os.path.basename(sys.argv[2])
 filename = os.path.splitext(base)[0]
 work_dir = os.getcwd() + "/corpus/"
 wb.save(work_dir + "comparaison_"+ filename  +".xlsx")
-print("Il y a " + str(match) + " matchs, "+ str(err) + " erreurs, " + str(approx) + " approximations.")
-print("Nombre d'éléments annotés automatiquement : " + str(size_comp))
 print("Nombre d'éléments annotés manuellement : " + str(size_ref))
+print("Nombre d'éléments annotés automatiquement : " + str(size_comp))
+print("Il y a " + str(match) + " matchs, "+ str(err) + " erreurs, " + str(approx) + " approximations.")
+print("Méthode de résolution & Précision & Rappel & F-Score //")
 precision = (match+approx)/float(size_comp)
 rappel = (match+approx)/float(size_ref)
-fscore = 2*(precision*rappel)/(precision+rappel)
-print("Avec Approximation :")
-print("Precision: " + str(precision) + " Rappel: " + str(rappel) + " F-Score: " + str(fscore))
-print("Sans Approximation :")
+if rappel == 0 or precision == 0:
+    fscore = 0.0
+else:
+    fscore = 2*(precision*rappel)/(precision+rappel)
+print("Avec Approximation & " + "{0:.3f}".format(precision) + " & " + "{0:.3f}".format(rappel) + " & " + "{0:.3f}".format(fscore) + " //")
 precision = (match)/float(size_comp)
 rappel = (match)/float(size_ref)
-fscore = 2*(precision*rappel)/(precision+rappel)
-print("Precision: " + str(precision) + " Rappel: " + str(rappel) + " F-Score: " + str(fscore))
-
+if rappel == 0 or precision == 0:
+    fscore = 0.0
+else:
+    fscore = 2*(precision*rappel)/(precision+rappel)
+print("Sans Approximation & " + "{0:.3f}".format(precision) + " & " + "{0:.3f}".format(rappel) + " & " + "{0:.3f}".format(fscore) + " //")
 # UTILISATION
 # python3 exel_comp.py /home/matthias/rapportstage/annotations/annotations_cours_fabrice_matthias.xlsx /home/matthias/pyKE/corpus/TICA.xlsx
 # python3 exel_comp.py /home/matthias/rapportstage/annotations/annotations_cours_fabrice_matthias.xlsx /home/matthias/pyKE/corpus/TICA.xlsx /home/matthias/pyKE/corpus/TICA.pdf

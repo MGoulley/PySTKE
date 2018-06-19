@@ -2,6 +2,10 @@
 Python Slides and Transcriptions Keywords Extractor.
 Outil d'extraction de mots clés dans des diaporamas et des transcriptions de la parole.
 
+## Table des matières
+* [Contenu du projet](#contenu-du-projet)
+* [Pour commencer](#pour-commencer)
+
 ## Contenu du projet
 
 - Le répertoire 'corpus' contient tous les fichiers que PySTKE produit lors de son exécution.
@@ -41,20 +45,34 @@ future http://python-future.org/quickstart.html
 Que vous pouvez installer avec :
 
 ```
-sudo pip install openpyxl PyPDF2 numpy
-sudo pip install git+https://github.com/boudinfl/pke.git
+sudo pip install openpyxl PyPDF2 nltk numpy pyrata scipy networkx sklearn unidecode future
+sudo pip3 install openpyxl PyPDF2 nltk numpy pyrata scipy networkx sklearn unidecode future
 ```
 
-Si vous avez un soucis d'installation avec pip, vous pouvez installer  les dépendances avec :
+Si vous avez un soucis d'installation avec pip, vous pouvez installer les dépendances avec :
 
 ```
 sudo apt-get install python-openpyxl
 sudo apt-get install python3-openpyxl
 sudo apt-get install python-numpy
 sudo apt-get install python-pypdf2
+...
 ```
 
-### Les options de lancement
+### Installer PKE
+Il vous faudra installer PKE via la commande:
+```
+sudo pip install git+https://github.com/boudinfl/pke.git
+```
+
+### Installer Exide
+Finalement, il faudra installer Exide :
+```
+sudo pip install git+https://github.com/Codophile1/exide
+```
+
+## Les options de lancement
+Voici la liste des arguments disponibles au lancement de PySTKE.
 
 ```
 usage: main.py [-h] [-d DOC] [-t [TOOL]] [-r [REF]] [--unique [UNIQUE]] [--count [COUNT]]
@@ -70,15 +88,15 @@ optional arguments:
   --count [COUNT]       Ajoute des détails sur les expressions annotées manuellement
 ```
 
-### Les méthodes d'extractions
-- PKE : Fonctionne avec la fréquence des mots dans le texte.
-- PyRATA : Utilise des patrons syntaxique pour extraire des mots clés.
-- Mixt : Combine PKE et PyRATA.
-- Wikifier : Utilise l'outil Wikifier (http://wikifier.org/) pour extraire des mots clés.
+## Les méthodes d'extractions
+- PKE[pke] : Fonctionne avec la fréquence des mots dans le texte.
+- PyRATA[pyrata] : Utilise des patrons syntaxique pour extraire des mots clés.
+- Mixt[mixt] : Combine PKE et PyRATA.
+- Wikifier[wikifier] : Utilise l'outil Wikifier (http://wikifier.org/) pour extraire des mots clés.
 
-### Effectuer les tests
+## Effectuer les tests
 
-La commande suivante permet d'extraire les mots clés contenus dans le diaporama '2014_Bourdon_Introduction_informatique.pdf' :
+La commande suivante permet d'extraire les mots clés contenus dans un diaporama:
 ```
 ~/PySTKE$ python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf
 ```
@@ -113,24 +131,6 @@ Precision: 0.0942028985507 Rappel: 0.156626506024 F-Score: 0.117647058824
 Il y a dans ce document 3201 mots.
 Vous avez annoté manuellement 164 mots.
 Cela représente 5.123398937831928%% de mots annotés.
-```
-
-### Exemple de Résultat
-
-Voici un résultat possible d'exécution de notre programme :
-
-```
-python3 main.py -d ~/PySTKE/PASTEL/diaporama/fonct.pdf -r ~/PySTKE/PASTEL/annotation_manuelle_diaporama/fonct.xlsx -t pke --count
-Il y a 29 matchs, 368 erreurs, 40 approximations.
-Nombre d'éléments annotés automatiquement : 270
-Nombre d'éléments annotés manuellement : 227
-Avec Approximation :
-Precision: 0.255555555556 Rappel: 0.303964757709 F-Score: 0.277665995976
-Sans Approximation :
-Precision: 0.107407407407 Rappel: 0.127753303965 F-Score: 0.116700201207
-Il y a dans ce document 5177 mots.
-Vous avez annoté manuellement 303 mots.
-Cela représente 5.852810508016225%% de mots annotés.
 ```
 
 ## Créer son extracteur de mots clés
