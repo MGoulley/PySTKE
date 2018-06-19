@@ -194,7 +194,7 @@ python3 main.py -d directory/file.pdf -t XXX
 ```
 
 Voici un template de ce fichier :
-```
+```python
 import os
 import sys
 
