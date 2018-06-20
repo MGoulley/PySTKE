@@ -23,6 +23,7 @@ def CallWikifier(text, lang="fr", threshold=0.8):
     with urllib.request.urlopen(req, timeout = 60) as f:
         response = f.read()
         response = json.loads(response.decode("utf-8"), strict=False)
+
     # Output the annotations.
     annot = []
     for annotation in response["annotations"]:
@@ -54,6 +55,7 @@ base = os.path.basename(sys.argv[1])
 filename = os.path.splitext(base)[0]
 work_dir = os.getcwd() + "/corpus/"
 addr = work_dir + filename + "_kw.txt"
+
 
 file = open(addr,"wb")
 try:

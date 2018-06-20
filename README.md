@@ -263,8 +263,15 @@ python3 src_kw_export_excel.py /corpus/2013_Daille_Langage_naturel_kw.txt PASTEL
 ### Récupérer les mots clés uniques
 On suppose ici qu'on dispose d'un fichier (tableur) d'annotation par diapositive (automatique ou manuelle) et on souhaite en extraire les mots clés uniques. Pour cela il suffit d'utiliser la commande:
 ```
-python3
+python excel_to_unique_keywords.py path_to_table_file.xslx mon_extension
 ```
+Cela va alors créer un fichier qui va contenir tous les mots clés uniques contenus dans le tableur qui portera l'extension que vous lui avez donné en paramètre.
+
+Par exemple, avec la commande :
+```
+python excel_to_unique_keywords.py /PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx _unique_ref.xlsx
+```
+On réupère le résultat dans un fichier "/corpus/2013_Daille_Langage_naturel_unique_ref.xlsx".
 
 ### Comparaison d'annotation
 Pour cette étape on suppose que l'on possède deux fichiers d'annotation. Il est possible de comparer :
