@@ -4,6 +4,8 @@ import urllib.parse, urllib.request, json
 import os
 import sys
 
+MAX_CHAR = 10000
+
 def CallWikifier(text, lang="fr", threshold=0.8):
     # Prepare the URL.
     data = urllib.parse.urlencode([
@@ -30,13 +32,22 @@ def CallWikifier(text, lang="fr", threshold=0.8):
         #print("%s (%s)" % (annotation["title"], annotation["url"]))
     return annot
 
+with open(sys.argv[1], "r") as ins:
+    array = []
+    for line in ins:
+        array.append(line.rstrip())
 
-file = open(sys.argv[1],"r")
-text=file.read().rstrip()
-#text = text.encode("utf8")
-file.close()
-result = CallWikifier(text)
-
+text_acc = ""
+request_size = 0
+result = []
+for element in array:
+    if len(element) + request_size > MAX_CHAR:
+        result.append(CallWikifier(text_acc.encode("utf8")))
+        text_acc = element
+        request_size = len(element)
+    else:
+        text_acc = text_acc + element
+        request_size = request_size + len(element)
 
 # Ecriture dans un fichier du resultat
 base = os.path.basename(sys.argv[1])
@@ -46,8 +57,9 @@ addr = work_dir + filename + "_kw.txt"
 
 file = open(addr,"wb")
 try:
-    for keyphrase in result:
-        file.write(keyphrase.encode('utf-8') + b"\n")
+    for table in result:
+        for keyphrase in table:
+            file.write(keyphrase.encode('utf-8') + b"\n")
 except NameError:
     pass
 file.close()

@@ -18,6 +18,7 @@ Formats supportés pour les diaporamas et transcriptions :
 * [Les options de lancement](#les-options-de-lancement)
 * [Les méthodes d'extractions](#les-méthodes-d'extractions)
 * [Effectuer les tests](#effectuer-les-tests)
+* [Exécution indépendante](#exécution-indépendante)
 * [Créer son extracteur de mots clés](#créer-son-extracteur-de-mots-clés)
 * [Auteur](#auteur)
 * [References](#references)
@@ -182,6 +183,101 @@ Méthode de résolution & Précision & Rappel & F-Score //
 Avec Approximation & 0.129 & 0.346 & 0.187 //
 Sans Approximation & 0.029 & 0.077 & 0.042 //
 ```
+
+## Exécution indépendante
+Si vous vous sentez bricoleur dans l'âme, PySTKE permet d'exécuter toutes les taches indépendamment les unes des autres.
+### Extraction de texte
+- Pour transformer un diaporama (PDF) en texte brute :
+```
+python extract_pdf.py path_to_pdf_file.pdf path_to_result_folder
+```
+(Pour un utilisateur non avertis, il faut laisser "path_to_result_folder"="/corpus/")
+
+- Pour transformer un diaporama (Source) en texte brute :
+```
+python extract_src.py path_to_pdf_file.pptx path_to_result_folder
+```
+
+- Pour transformer une transcription en texte brute :
+```
+python extract_transcription.py path_to_pdf_file.stm path_to_result_folder
+```
+
+Par exemple, je veux extraire le texte de mon fichier '2013_Daille_Langage_naturel.pptx' dans mon dossier de travail '/corpus/', j'utilise alors la commande :
+```
+python extract_src.py PASTEL/supports/2013_Daille_Langage_naturel.pptx /corpus/
+```
+Vous obtiendrez alors un fichier "/corpus/2013_Daille_Langage_naturel.txt" qui contiendra le texte extrait de votre diaporama.
+
+### Extraction de mots clés
+On suppose dans cette partie que vous possédez déja un fichier texte (sinon cf: Extraction de texte).
+- Pour extraire des mots clés d'un document text avec PKE, il faut utiliser la commande :
+```
+python3 txt_to_kw_pke.py path_to_raw_text.txt
+```
+
+- Pour extraire des mots clés d'un document text avec PyRATA, il faut utiliser la commande :
+```
+python3 txt_to_kw_pyrata.py path_to_raw_text.txt
+```
+
+- Pour extraire des mots clés d'un document text avec Mixt, il faut utiliser la commande :
+```
+python3 txt_to_kw_mixt.py path_to_raw_text.txt
+```
+
+- Pour extraire des mots clés d'un document text avec Wikifier, il faut utiliser la commande :
+```
+python3 txt_to_kw_wikifier.py path_to_raw_text.txt
+```
+
+Par exemple, je souhaite extraire les mots clés de mon texte "2013_Daille_Langage_naturel.txt" avec l'outil PyRATA. J'utilise alors la commande :
+```
+python3 txt_to_kw_pyrata.py /corpus/2013_Daille_Langage_naturel.txt
+```
+Cela me produira alors un fichier nommé "2013_Daille_Langage_naturel_kw.txt" dans mon répertoire "/corpus/". Ce fichier contient tous les mots clés uniques extrait par PyRATA.
+
+### Alignement de mots clés par diapositive
+On suppose dans cette partie que vous possédez un fichier texte contenant des mots clés (sinon cf: Extraction de mots clés).
+- Je possède une liste de mots clés extrait de mon diaporama PDF, j'utilise la commande suivante :
+```
+python3 pdf_kw_export_excel.py path_to_keywords_file_kw.txt path_to_pdf_file.pdf
+```
+
+- Je possède une liste de mots clés extrait de mon diaporama source, j'utilise la commande suivante :
+```
+python3 src_kw_export_excel.py path_to_keywords_file_kw.txt path_to_src_file.pptx
+```
+
+- Je possède une liste de mots clés extrait de ma transcription, j'utilise la commande suivante :
+```
+python3 transcription_kw_export_excel.py path_to_keywords_file_kw.txt path_to_transcription_file.stm
+```
+(Pour le moment, les mots clés extraits d'une transcription se retrouvent tous sur la diapositive numéro 1. C'est ce fichier qu'il faudra modifier pour prendre en compte les timer des diapositive)
+
+Par exemple, je possède mon fichier de mots clés extrait de mon diaporama source "2013_Daille_Langage_naturel_kw.txt" et mon diaporama source "2013_Daille_Langage_naturel.pptx", j'utilise la commande :
+```
+python3 src_kw_export_excel.py /corpus/2013_Daille_Langage_naturel_kw.txt PASTEL/supports/2013_Daille_Langage_naturel.pptx
+```
+
+### Récupérer les mots clés uniques
+On suppose ici qu'on dispose d'un fichier (tableur) d'annotation par diapositive (automatique ou manuelle) et on souhaite en extraire les mots clés uniques. Pour cela il suffit d'utiliser la commande:
+```
+python3
+```
+
+### Comparaison d'annotation
+Pour cette étape on suppose que l'on possède deux fichiers d'annotation. Il est possible de comparer :
+- Annotation manuelle vs Annotation manuelle
+- Annotation automatique vs Annotation automatique
+- Annotation manuelle vs Annotation automatique
+- Annotation automatique vs Annotation manuelle
+
+Pour cela, il faut utiliser la commande :
+```
+python3
+```
+
 
 ## Créer son extracteur de mots clés
 Vous pouvez créer votre propre extracteur de mots clés utilisable avec cet outil. Il suffit de créer un fichier Python dans le dossier comportant le programme principal, avec ce nom :
