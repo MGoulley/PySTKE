@@ -271,7 +271,7 @@ Par exemple, avec la commande :
 ```
 python excel_to_unique_keywords.py /PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx _unique_ref.xlsx
 ```
-On réupère le résultat dans un fichier "/corpus/2013_Daille_Langage_naturel_unique_ref.xlsx".
+On récupère le résultat dans un fichier "/corpus/2013_Daille_Langage_naturel_unique_ref.xlsx".
 
 ### Comparaison d'annotation
 Pour cette étape on suppose que l'on possède deux fichiers d'annotation. Il est possible de comparer :
@@ -280,11 +280,26 @@ Pour cette étape on suppose que l'on possède deux fichiers d'annotation. Il es
 - Annotation manuelle vs Annotation automatique
 - Annotation automatique vs Annotation manuelle
 
-Pour cela, il faut utiliser la commande :
-```
-python3
-```
+Deux méthodes pour comparer des annotation :
+- Par Diapositive
+- Par mots clés uniques
 
+Pour comparer par diapositive, il faut utiliser la commande :
+```
+python excel_comp.py path_to_first_file.xlsx path_to_second_file.xlsx
+```
+Cela produira alors un fichier de résultat .xlsx dans le répertoire "/corpus/".
+
+Pour comparer par mots clés uniques, il faut dans un premier temps retirer tous les doublons. Pour cela, il faut exécuter les deux commandes suivante :
+```
+python excel_to_unique_keywords.py path_to_first_file.xlsx _unique_ref.xlsx
+python excel_to_unique_keywords.py path_to_second_file.xlsx _unique_comp.xlsx
+```
+On créer ici deux nouveaux fichiers qui contient nos mots clés uniques. Il seront enregistrer dans le répertoire "/corpus/".
+Pour finir, on compare ces deux fichiers avec la commande :
+```
+python excel_comp.py /corpus/first_file_unique_ref.xlsx /corpus/second_file_unique_comp.xlsx
+```
 
 ## Créer son extracteur de mots clés
 Vous pouvez créer votre propre extracteur de mots clés utilisable avec cet outil. Il suffit de créer un fichier Python dans le dossier comportant le programme principal, avec ce nom :

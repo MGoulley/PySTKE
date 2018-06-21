@@ -1,0 +1,154 @@
+*** Introduction à l'informatique ***
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique.xlsx -t wikifier --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.stm -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique_transcription.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.stm -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique_transcription.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.stm -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique_transcription.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_informatique.stm -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_informatique_transcription.xlsx -t wikifier --unique
+
+
+*** Introduction à l'algorithmique ***
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_algorithmique.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_algorithmique.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_algorithmique.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_algorithmique.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_algorithmique.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_algorithmique.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_algorithmique.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_algorithmique.xlsx -t wikifier --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.stm -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_algorithmique_transcription.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.stm -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_algorithmique_transcription.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.stm -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_algorithmique_transcription.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Introduction_algorithmique.stm -r PASTEL/annotation_manuelle/2014_Bourdon_Introduction_algorithmique_transcription.xlsx -t wikifier --unique
+
+
+*** Les Fonctions dans l'algorithmique ***
+python3 main.py -d PASTEL/supports/2014_Bourdon_Fonctions.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Fonctions.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2014_Bourdon_Fonctions.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Fonctions.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Fonctions.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Fonctions.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2014_Bourdon_Fonctions.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Fonctions.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Fonctions.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Fonctions.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2014_Bourdon_Fonctions.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Fonctions.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Fonctions.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Fonctions.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2014_Bourdon_Fonctions.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Fonctions.xlsx -t wikifier --unique
+
+
+*** Réseaux sociaux et graphes 2012 ***
+python3 main.py -d PASTEL/supports/2012_Higuera_Reseaux_sociaux_et_graphes.pptx -r PASTEL/annotation_manuelle/2012_Higuera_Reseaux_sociaux_et_graphes.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2012_Higuera_Reseaux_sociaux_et_graphes.pptx -r PASTEL/annotation_manuelle/2012_Higuera_Reseaux_sociaux_et_graphes.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2012_Higuera_Reseaux_sociaux_et_graphes.pptx -r PASTEL/annotation_manuelle/2012_Higuera_Reseaux_sociaux_et_graphes.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2012_Higuera_Reseaux_sociaux_et_graphes.pptx -r PASTEL/annotation_manuelle/2012_Higuera_Reseaux_sociaux_et_graphes.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2012_Higuera_Reseaux_sociaux_et_graphes.pptx -r PASTEL/annotation_manuelle/2012_Higuera_Reseaux_sociaux_et_graphes.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2012_Higuera_Reseaux_sociaux_et_graphes.pptx -r PASTEL/annotation_manuelle/2012_Higuera_Reseaux_sociaux_et_graphes.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2012_Higuera_Reseaux_sociaux_et_graphes.pptx -r PASTEL/annotation_manuelle/2012_Higuera_Reseaux_sociaux_et_graphes.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2012_Higuera_Reseaux_sociaux_et_graphes.pptx -r PASTEL/annotation_manuelle/2012_Higuera_Reseaux_sociaux_et_graphes.xlsx -t wikifier --unique
+
+
+*** Réseaux sociaux et graphes 2013 ***
+python3 main.py -d PASTEL/supports/2013_Higuera_Reseaux_sociaux_et_graphes.pdf -r PASTEL/annotation_manuelle/2013_Higuera_Reseaux_sociaux_et_graphes.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2013_Higuera_Reseaux_sociaux_et_graphes.pdf -r PASTEL/annotation_manuelle/2013_Higuera_Reseaux_sociaux_et_graphes.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2013_Higuera_Reseaux_sociaux_et_graphes.pdf -r PASTEL/annotation_manuelle/2013_Higuera_Reseaux_sociaux_et_graphes.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2013_Higuera_Reseaux_sociaux_et_graphes.pdf -r PASTEL/annotation_manuelle/2013_Higuera_Reseaux_sociaux_et_graphes.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2013_Higuera_Reseaux_sociaux_et_graphes.pdf -r PASTEL/annotation_manuelle/2013_Higuera_Reseaux_sociaux_et_graphes.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2013_Higuera_Reseaux_sociaux_et_graphes.pdf -r PASTEL/annotation_manuelle/2013_Higuera_Reseaux_sociaux_et_graphes.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2013_Higuera_Reseaux_sociaux_et_graphes.pdf -r PASTEL/annotation_manuelle/2013_Higuera_Reseaux_sociaux_et_graphes.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2013_Higuera_Reseaux_sociaux_et_graphes.pdf -r PASTEL/annotation_manuelle/2013_Higuera_Reseaux_sociaux_et_graphes.xlsx -t wikifier --unique
+
+
+*** Elements de cryptographie ***
+python3 main.py -d PASTEL/supports/2013_Bourdon_Elements_de_cryptographie.pdf -r PASTEL/annotation_manuelle/2013_Bourdon_Elements_de_cryptographie.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2013_Bourdon_Elements_de_cryptographie.pdf -r PASTEL/annotation_manuelle/2013_Bourdon_Elements_de_cryptographie.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2013_Bourdon_Elements_de_cryptographie.pdf -r PASTEL/annotation_manuelle/2013_Bourdon_Elements_de_cryptographie.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2013_Bourdon_Elements_de_cryptographie.pdf -r PASTEL/annotation_manuelle/2013_Bourdon_Elements_de_cryptographie.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2013_Bourdon_Elements_de_cryptographie.pdf -r PASTEL/annotation_manuelle/2013_Bourdon_Elements_de_cryptographie.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2013_Bourdon_Elements_de_cryptographie.pdf -r PASTEL/annotation_manuelle/2013_Bourdon_Elements_de_cryptographie.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2013_Bourdon_Elements_de_cryptographie.pdf -r PASTEL/annotation_manuelle/2013_Bourdon_Elements_de_cryptographie.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2013_Bourdon_Elements_de_cryptographie.pdf -r PASTEL/annotation_manuelle/2013_Bourdon_Elements_de_cryptographie.xlsx -t wikifier --unique
+
+
+*** Langage Naturel ***
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pdf -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pdf -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pdf -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pdf -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pdf -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pdf -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pdf -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pdf -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t wikifier --unique
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pptx -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pptx -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pptx -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pptx -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pptx -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pptx -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pptx -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.pptx -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel.xlsx -t wikifier --unique
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.stm -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel_transcription.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.stm -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel_transcription.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.stm -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel_transcription.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2013_Daille_Langage_naturel.stm -r PASTEL/annotation_manuelle/2013_Daille_Langage_naturel_transcription.xlsx -t wikifier --unique
+
+
+*** Algorithmique Distribuee ***
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pdf -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pdf -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pdf -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pdf -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pdf -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pdf -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pdf -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pdf -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t wikifier --unique
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pptx -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pptx -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pptx -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pptx -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pptx -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pptx -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pptx -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2013_Busnel_Algorithmique_distribuee.pptx -r PASTEL/annotation_manuelle/2013_Busnel_Algorithmique_distribuee.xlsx -t wikifier --unique
+
+*** Structures de controle ***
+python3 main.py -d PASTEL/supports/2014_Bourdon_Structure_de_controle.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Structure_de_controle.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2014_Bourdon_Structure_de_controle.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Structure_de_controle.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Structure_de_controle.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Structure_de_controle.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2014_Bourdon_Structure_de_controle.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Structure_de_controle.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Structure_de_controle.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Structure_de_controle.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2014_Bourdon_Structure_de_controle.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Structure_de_controle.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2014_Bourdon_Structure_de_controle.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Structure_de_controle.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2014_Bourdon_Structure_de_controle.pdf -r PASTEL/annotation_manuelle/2014_Bourdon_Structure_de_controle.xlsx -t wikifier --unique
+
+*** Boite noire génomique ***
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pdf -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pdf -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pdf -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pdf -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pdf -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pdf -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pdf -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pdf -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t wikifier --unique
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pptx -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pptx -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pptx -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pptx -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pptx -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pptx -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pptx -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2013_Eveillard_Boite_noire_genomique.pptx -r PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx -t wikifier --unique
+
+*** Statistical Machine Translation ***
+python3 main.py -d PASTEL/supports/2018_Barrault_Statistical_machine_translation.pdf -r PASTEL/annotation_manuelle/2018_Barrault_Statistical_machine_translation.xlsx -t pke --count
+
+
+*** Bases Techniques en Audiovisuel ***
+python3 main.py -d PASTEL/supports/2018_Houliere_Bases_techniques_audiovisuel.pdf -r PASTEL/annotation_manuelle/2018_Houliere_Bases_techniques_audiovisuel.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2018_Houliere_Bases_techniques_audiovisuel.odp -r PASTEL/annotation_manuelle/2018_Houliere_Bases_techniques_audiovisuel.xlsx -t pke --count
+
+*** Théorie de l'information et de la communication avancée ***
+python3 main.py -d PASTEL/supports/2018_Pirolli_Théorie_information_communication_avancee.pdf -r PASTEL/annotation_manuelle/2018_Pirolli_Théorie_information_communication_avancee.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2018_Pirolli_Théorie_information_communication_avancee.odp -r PASTEL/annotation_manuelle/2018_Pirolli_Théorie_information_communication_avancee.xlsx -t pke --count
