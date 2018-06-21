@@ -148,7 +148,21 @@ python3 main.py -d PASTEL/supports/2018_Barrault_Statistical_machine_translation
 *** Bases Techniques en Audiovisuel ***
 python3 main.py -d PASTEL/supports/2018_Houliere_Bases_techniques_audiovisuel.pdf -r PASTEL/annotation_manuelle/2018_Houliere_Bases_techniques_audiovisuel.xlsx -t pke --count
 python3 main.py -d PASTEL/supports/2018_Houliere_Bases_techniques_audiovisuel.odp -r PASTEL/annotation_manuelle/2018_Houliere_Bases_techniques_audiovisuel.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2018_Houliere_Bases_techniques_audiovisuel.odp -r PASTEL/annotation_manuelle/2018_Houliere_Bases_techniques_audiovisuel.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2018_Houliere_Bases_techniques_audiovisuel.odp -r PASTEL/annotation_manuelle/2018_Houliere_Bases_techniques_audiovisuel.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2018_Houliere_Bases_techniques_audiovisuel.odp -r PASTEL/annotation_manuelle/2018_Houliere_Bases_techniques_audiovisuel.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2018_Houliere_Bases_techniques_audiovisuel.odp -r PASTEL/annotation_manuelle/2018_Houliere_Bases_techniques_audiovisuel.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2018_Houliere_Bases_techniques_audiovisuel.odp -r PASTEL/annotation_manuelle/2018_Houliere_Bases_techniques_audiovisuel.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2018_Houliere_Bases_techniques_audiovisuel.odp -r PASTEL/annotation_manuelle/2018_Houliere_Bases_techniques_audiovisuel.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2018_Houliere_Bases_techniques_audiovisuel.odp -r PASTEL/annotation_manuelle/2018_Houliere_Bases_techniques_audiovisuel.xlsx -t wikifier --unique
 
 *** Théorie de l'information et de la communication avancée ***
 python3 main.py -d PASTEL/supports/2018_Pirolli_Théorie_information_communication_avancee.pdf -r PASTEL/annotation_manuelle/2018_Pirolli_Théorie_information_communication_avancee.xlsx -t pke --count
 python3 main.py -d PASTEL/supports/2018_Pirolli_Théorie_information_communication_avancee.odp -r PASTEL/annotation_manuelle/2018_Pirolli_Théorie_information_communication_avancee.xlsx -t pke --count
+python3 main.py -d PASTEL/supports/2018_Pirolli_Théorie_information_communication_avancee.odp -r PASTEL/annotation_manuelle/2018_Pirolli_Théorie_information_communication_avancee.xlsx -t pke --count --unique
+python3 main.py -d PASTEL/supports/2018_Pirolli_Théorie_information_communication_avancee.odp -r PASTEL/annotation_manuelle/2018_Pirolli_Théorie_information_communication_avancee.xlsx -t pyrata
+python3 main.py -d PASTEL/supports/2018_Pirolli_Théorie_information_communication_avancee.odp -r PASTEL/annotation_manuelle/2018_Pirolli_Théorie_information_communication_avancee.xlsx -t pyrata --unique
+python3 main.py -d PASTEL/supports/2018_Pirolli_Théorie_information_communication_avancee.odp -r PASTEL/annotation_manuelle/2018_Pirolli_Théorie_information_communication_avancee.xlsx -t mixt
+python3 main.py -d PASTEL/supports/2018_Pirolli_Théorie_information_communication_avancee.odp -r PASTEL/annotation_manuelle/2018_Pirolli_Théorie_information_communication_avancee.xlsx -t mixt --unique
+python3 main.py -d PASTEL/supports/2018_Pirolli_Théorie_information_communication_avancee.odp -r PASTEL/annotation_manuelle/2018_Pirolli_Théorie_information_communication_avancee.xlsx -t wikifier
+python3 main.py -d PASTEL/supports/2018_Pirolli_Théorie_information_communication_avancee.odp -r PASTEL/annotation_manuelle/2018_Pirolli_Théorie_information_communication_avancee.xlsx -t wikifier --unique

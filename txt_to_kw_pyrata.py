@@ -8,8 +8,9 @@ import sys
 import os
 import re
 
-jar = '/home/matthias/PySTKE/stanford-postagger-3.9.1.jar'
-model = '/home/matthias/PySTKE/french.tagger'
+jar = 'stanford-postagger-3.9.1.jar'
+model = 'french.tagger'
+# Si besoin :
 #java_path = "export JAVA_HOME=/usr/lib/jvm/java-9-openjdk-amd64"
 #os.environ['JAVAHOME'] = java_path
 pos_tagger = StanfordPOSTagger(model, jar, encoding='utf8' )

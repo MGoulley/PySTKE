@@ -359,6 +359,54 @@ La première contient le numéro de la diapositive et la seconde contient le mot
 
 Vous pouvez trouver des exemples de ces fichiers dans le répertoire '~/PySTKE/PASTEL/annotation_manuelle/'.
 
+## Problèmes observables
+
+Voici des pistes d'amélioration pour l'outil PySTKE.
+
+### Extraction de texte
+J'ai manuellement réorganisé le fichier texte extrait du cours "2013_Eveillard_Boite_noire_genomique".
+Avec PyRATA on extrait les mots clés avec les commandes suivantes :
+```
+# Avec
+python3 txt_to_kw_pyrata.py corpus/2013_Eveillard_Boite_noire_genomique.txt
+python3 txt_to_kw_pyrata.py PASTEL/non_classable/2013_Eveillard_Boite_noire_genomique_clean.txt
+```
+
+Si on compare ces deux annotation automatiques, on obtient :
+```
+python3 transcription_kw_export_excel.py corpus/2013_Eveillard_Boite_noire_genomique_clean_kw.txt /home/matthias/PySTKE/PASTEL/non_classable/2013_Eveillard_Boite_noire_genomique_clean.txt
+python3 transcription_kw_export_excel.py corpus/2013_Eveillard_Boite_noire_genomique_kw.txt corpus/2013_Eveillard_Boite_noire_genomique.txt
+```
+(On utilise "transcription_kw_export_excel.py" car cela nous permet de ne pas prendre en compte les diapositives pour l'alignement des mots clés)
+
+Si on compare maintenant nos deux annotations automatiques avec notre annotation manuelle nous obtenons :
+```
+# Avec extraction manuelle
+python excel_comp.py PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx corpus/2013_Eveillard_Boite_noire_genomique_clean.xlsx
+Nombre d'éléments annotés manuellement : 47
+Nombre d'éléments annotés automatiquement : 46
+Il y a 1 matchs, 91 erreurs, 0 approximations.
+Méthode de résolution & Précision & Rappel & F-Score //
+Avec Approximation & 0.022 & 0.021 & 0.022 //
+Sans Approximation & 0.022 & 0.021 & 0.022 //
+
+# Avec extraction automatique
+python excel_comp.py PASTEL/annotation_manuelle/2013_Eveillard_Boite_noire_genomique.xlsx corpus/2013_Eveillard_Boite_noire_genomique.xlsx
+Nombre d'éléments annotés manuellement : 47
+Nombre d'éléments annotés automatiquement : 50
+Il y a 1 matchs, 95 erreurs, 0 approximations.
+Méthode de résolution & Précision & Rappel & F-Score //
+Avec Approximation & 0.020 & 0.021 & 0.021 //
+Sans Approximation & 0.020 & 0.021 & 0.021 //
+```
+On peut donc en conclure qu'une meilleure extraction du texte peut permettre d'augmenter la qualité des résultats.
+
+### POS TAGGING
+
+Avec notre outil, il est difficile d'évaluer l'influence du POS TAGGING sur nos résultats.
+Cependant, le POS TAGGING est présent dans tous nos outil d'extraction de mots clés et représente un point important pour extraire des mots clés.
+Il est certain qu'un POS TAGGING parfait améliorerait aussi nos résultats.
+
 ## Auteur
 
 * **Matthias Goulley** - Contact : mattgoulley@gmail.com
