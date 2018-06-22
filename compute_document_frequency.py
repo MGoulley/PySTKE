@@ -20,7 +20,5 @@ compute_document_frequency(input_dir=input_dir,
                            extension='txt',          # input files extension
                            n=5)              # compute n-grams up to 5-grams
 
-#os.system('gzip -d ' + output_file)
-
 # UTILISATION
 # python compute_document_frequency.py corpus/ corpus/2014_Bourdon_Introduction_informatique_frequency.gz

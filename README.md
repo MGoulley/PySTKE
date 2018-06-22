@@ -408,7 +408,40 @@ Avec notre outil, il est difficile d'évaluer l'influence du POS TAGGING sur nos
 Cependant, le POS TAGGING est présent dans tous nos outil d'extraction de mots clés et représente un point important pour extraire des mots clés.
 Il est certain qu'un POS TAGGING parfait améliorerait aussi nos résultats.
 
-## 
+## Calcul de la saillance (Not Working Well Yet)
+
+Il est possible d'injecter des mots clés et de calculer leurs saillance dans un document. Pour réaliser ce calcul, il faut disposer de la fréquence des expressions dans un document (cf https://github.com/boudinfl/pke#document-frequency-counts). Voici une commande qui permet de faire cela :
+```
+python compute_document_frequency.py corpus/ corpus/2014_Bourdon_Introduction_informatique_frequency.gz
+```
+On suppose que l'on a déjà extrait le fichier "2014_Bourdon_Introduction_informatique.txt" dans le dossier corpus. (Il est possible d'extraire plusieurs fichier ".txt" en même temps)
+On passe donc en premier paramètre l'adresse du fichier qui contient tous les documents que l'on veut étudier. Le second paramètre correspond au nom du fichier, et à sa location, qui sera produit par le processus.
+Voici un exemple de ce fichier que vous allez obtenir : (cf https://github.com/boudinfl/pke#document-frequency-counts)
+```
+--NB_DOC--  100
+greedi alloc  1
+sinc trial structur 1
+complex question  1
+[...]
+```
+
+Une fois ce fichier obtenu, nous allons pouvoir calculer la saillance de ces expressions.
+```
+python candidates_to_saliency.py corpus/2014_Bourdon_Introduction_informatique.txt corpus/2014_Bourdon_Introduction_informatique_frequency.gz
+```
+
+On obtient alors :
+```
+puissance  364.0
+puissance vaut  108.0
+les  69.0
+résultat  27.0
+restituer  25.0
+restituer le  25.0
+restituer le résultat  25.0
+le résultat  25.0
+algorithmes  24.0
+```
 
 ## Auteur
 
