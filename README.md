@@ -399,6 +399,7 @@ Méthode de résolution & Précision & Rappel & F-Score //
 Avec Approximation & 0.020 & 0.021 & 0.021 //
 Sans Approximation & 0.020 & 0.021 & 0.021 //
 ```
+Le rappel reste le même mais la précision augmente. Aucun terme n'est ajouté mais certain sont retirés. Cela est donc du au POS TAGGING.
 On peut donc en conclure qu'une meilleure extraction du texte peut permettre d'augmenter la qualité des résultats.
 
 ### POS TAGGING
@@ -406,6 +407,8 @@ On peut donc en conclure qu'une meilleure extraction du texte peut permettre d'a
 Avec notre outil, il est difficile d'évaluer l'influence du POS TAGGING sur nos résultats.
 Cependant, le POS TAGGING est présent dans tous nos outil d'extraction de mots clés et représente un point important pour extraire des mots clés.
 Il est certain qu'un POS TAGGING parfait améliorerait aussi nos résultats.
+
+## 
 
 ## Auteur
 
